@@ -3,13 +3,24 @@
 int search(int numbers[], int low, int high, int value) 
 {
 	
+	int result = -1;
+
 	if (low <= high) { // if this isnt true we've hit a dead-end in the search
 
-		return;
+		// see if we've found a match with current low or high indexes
+		if (numbers[low] == value) {
+			result = low;
+		}
+
+		else if (numbers[high] == value) {
+			result = high;
+		}
+		
+		
 	
 	}
 
-	return -1;
+	return result;
 }
 
 void printArray(int numbers[], int sz)
