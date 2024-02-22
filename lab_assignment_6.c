@@ -16,7 +16,25 @@ int search(int numbers[], int low, int high, int value)
 			result = high;
 		}
 		
-		
+		// if its not low and high, its time to divide the search
+		else {
+			// narrow down search in half
+			int mid = (high + low) / 2;
+
+			// means that value must be between indexes mid + 1 and high - 1
+			if (value > numbers[mid]) {
+				result = search(numbers, mid + 1, high - 1, value);
+			}
+			// value must be between mid - 1 and low + 1
+			else if (value < numbers[mid]) {
+				result = search(numbers, low + 1, mid - 1, value);
+			}
+			// or else mid IS the index we're looking for
+			else {
+				result = mid;
+			}
+			
+		}
 	
 	}
 
